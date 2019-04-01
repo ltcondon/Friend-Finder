@@ -2,7 +2,6 @@ var friendData = require("../data/friends.js");
 
 module.exports = function(app) {
 	console.log("hello there")
-    //etc
     
     app.get("/api/friends", function(req, res) {
         res.json(friendData);
@@ -27,8 +26,10 @@ module.exports = function(app) {
                     totalDifference = friendDifference;
                     closestMatch = friendData[i].name;
                 }
-
             }
+            console.log("Total Diff: "+ totalDifference
+            + "\nFriend Diff: " + friendDifference
+            + "\nClosest Match: " + closestMatch);
         }
 
         findMatch(request.body);
