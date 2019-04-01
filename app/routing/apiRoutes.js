@@ -12,12 +12,22 @@ module.exports = function(app) {
         friendData.push(request.body);
 
         function findMatch(person) {
+            var friendDifference = 0;
             var totalDifference = 0;
+            var closestMatch = "";
+
             for (var i = 0; i < friendData.length; i++) {
-                var friendScore = friendData[i].answers;
+                var friendScores = friendData[i].answers;
                 
-                for (var j = 0; j < person.answers.length; j++)
-                
+                for (var j = 0; j < person.answers.length; j++) {
+                    friendDifference += Math.abs((person.answers[j] - friendScores[j]));
+                } 
+
+                if (friendDifference > totalDifference) {
+                    totalDifference = friendDifference;
+                    closestMatch = friendData[i].name;
+                }
+
             }
         }
 
