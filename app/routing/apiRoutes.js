@@ -8,12 +8,19 @@ module.exports = function(app) {
         res.json(friendData);
       });
 
-    app.post("/api/submit", function(request, response) {
-        var person =  {
-            name: request.name,
-            photo: request.photo,
-            answers: request.answers
+    app.post("/api/friends", function(request, response) {
+        friendData.push(request.body);
+
+        function findMatch(person) {
+            var totalDifference = 0;
+            for (var i = 0; i < friendData.length; i++) {
+                var friendScore = friendData[i].answers;
+                
+                for (var j = 0; j < person.answers.length; j++)
+                
+            }
         }
-        friendData.push()
+
+        findMatch(request.body);
     })
 }
