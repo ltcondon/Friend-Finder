@@ -11,27 +11,37 @@ module.exports = function(app) {
         friendData.push(request.body);
 
         function findMatch(person) {
+
             var friendDifference = 0;
             var totalDifference = 0;
             var closestMatch = "";
 
             for (var i = 0; i < friendData.length; i++) {
                 var friendScores = friendData[i].answers;
-                
-                for (var j = 0; j < person.answers.length; j++) {
-                    friendDifference += Math.abs((person.answers[j] - friendScores[j]));
+                var personScores = person.answers;
+            
+              if (friendData[i].name !== person.name) {
+
+                for (var j = 0; j < personScores.length; j++) {
+                    friendDifference += Math.abs((personScores[j] - friendScores[j]));
                 } 
 
                 if (friendDifference > totalDifference) {
                     totalDifference = friendDifference;
                     closestMatch = friendData[i].name;
                 }
+                
+                friendDifference = 0;
+              }
             }
-            console.log("Total Diff: "+ totalDifference
+            console.log("Total Diff: " + totalDifference
             + "\nFriend Diff: " + friendDifference
             + "\nClosest Match: " + closestMatch);
         }
 
         findMatch(request.body);
+
+        response = true;
+        console.log("post request made" + response)
     })
 }
