@@ -1,13 +1,13 @@
 var neighborhoods = [
     {
-        name: "East Village",
+        name: "The East Village",
         bio: "What was once the pulse of NYC’s hippie/artist scene (have you seen Rent? Same, same.) has moved aside as NYU students and faculty have taken over. Still, it’s one of the best neighborhoods in NYC for culture, nightlife, and dining... if you don’t mind dining next to college kids.",
         quote: "“The amount of food choices is crippling, in a good way. But don’t be surprised when the bro-next-door leaves a trail of pizza to your door in a boozy state and then vomits all over the floor... and then tries to clean it up with a slice of pizza.”",
         answers: [1,1,1,1,1],
         image: "https://www.triplemint.com/blog/wp-content/uploads/2017/11/East-Village-Feature-759x500.jpg"
     },
     {
-        name: "Upper East Side",
+        name: "The Upper East Side",
         bio: "A mixed bag of “you will never be able to afford this,” and “oh wow, this is surprisingly affordable.” And you’re walking distance to the Metropolitan Museum of Art, the Guggenheim, and the Frick. Oh and consulates. ALL THE CONSULATES... which is great if you, like... need a visa.",
         quote: "“Sure, it's sprinkled with your generic frat boy pubs and you may have to play chicken with a few double-wide strollers, but the Upper East has an unexpectedly homey neighborhood vibe with great grocery stores (a must for me) and easy access to Central Park and museums -- plus, a few of my favorite Downtown restaurants have even migrated north!”",
         answers: [2,2,2,2,2],

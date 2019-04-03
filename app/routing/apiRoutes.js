@@ -1,18 +1,20 @@
-// var friendData = require("../data/friends.js");
-var neighborhoods = require("../data/friends.js");
+var friendData = require("../data/friends.js");
+var neighborhoods = require("../data/neighborhoods.js");
 
-// var friendData = []
 
 module.exports = function(app) {
     console.log("hello there")
     
     
-    app.get("/api/friends", function(req, res) {
+    app.get("/api/neighborhoods", function(req, res) {
         res.json(neighborhoods);
       });
+    
+    app.get("/api/friends", function(req, res) {
+        res.json(friendData);
+      });
 
-    app.post("/api/friends", function(request, response) {
-        // friendData.push(request.body);
+    app.post("/api/neighborhoods", function(request, response) {
 
         function findMatch(person) {
 
@@ -50,4 +52,11 @@ module.exports = function(app) {
         response.json(findMatch(request.body));
 
     })
+
+    app.post("/api/friends", function(request, response) {
+        friendData.push(request.body);
+
+        response.json();
+    })
+    
 }

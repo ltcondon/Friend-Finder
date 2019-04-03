@@ -256,6 +256,19 @@
         $("#neighborhood-quote").text(data.quote);
         $("#neighborhood-image").attr("src", data.image);
 
+        newFriend.neighborhood = data.name;
+
+        $.post("/api/friends", newFriend, function (data) {
+
+            if (data) {
+                console.log(data);
+            }
+
+            else {
+                console.log('error');
+            }
+        })
+
     })
   })
 
