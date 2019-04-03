@@ -8,14 +8,21 @@ body {
   background-attachment: fixed;
 }
 
-#form {
-  background-color: rgba(255, 255, 255, 0.5);
+.main {
+  background-color: rgba(255, 255, 255, 0.75);
   padding: 30px;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 800px;
   transition: all 0.4 ease;
+}
+
+
+#neighborhood-image {
+  display: block;
+  margin: auto;
+  max-width: 600px;
 }
 
 .title {
