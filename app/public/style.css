@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bad+Script');
+
+.container {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 800px;
+  height: 300px;
+  transition: all 0.4 ease;
+}
+
+.title {
+  font-size: 30px;
+  font-family: 'Bad Script', cursive;
+
+}
+
+input[type=text]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]) {
+  border-bottom: 1px solid #8789C0;
+  box-shadow: 0 1px 0 0 #8789C0;
+}
+
+input[type=text]:focus:not([readonly]) + label {
+  color: #8789C0 !important;
+}
+
+input[type=email]:focus:not([readonly]) + label {
+  color: #8789C0 !important;
+}
+
+.input-field {
+  color: #8789C0 !important;
+}
+
+.btn {
+  background-color: #8789C0;
+}
+
+.btn:focus {
+  background: #7B7DAF;
+}
+
+.btn:hover {
+  background: #A7A9D1;
+}
+
+.toast {
+  width: 400px;
+  left: -400px;
+  margin-top: 200px;
+  background: #8789C0;
+}
+
+#main-form {
+    text-align: center; 
+}
+
+span {
+    color: black;
+}
