@@ -1,12 +1,14 @@
-var friendData = require("../data/friends.js");
+// var friendData = require("../data/friends.js");
 var neighborhoods = require("../data/friends.js");
+
+// var friendData = []
 
 module.exports = function(app) {
     console.log("hello there")
     
     
     app.get("/api/friends", function(req, res) {
-        res.json(friendData);
+        res.json(neighborhoods);
       });
 
     app.post("/api/friends", function(request, response) {
