@@ -1,35 +1,26 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bad+Script');
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab");
 
-
+body {
+  background-image: url('https://media.timeout.com/images/102596457/image.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 #form {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 800px;
-  height: 300px;
   transition: all 0.4 ease;
 }
 
 .title {
   font-size: 75px;
   font-family: 'Bad Script', cursive;
-
-}
-
-input[type=text]:focus:not([readonly]),
-input[type=email]:focus:not([readonly]) {
-  border-bottom: 1px solid #8789C0;
-  box-shadow: 0 1px 0 0 #8789C0;
-}
-
-input[type=text]:focus:not([readonly]) + label {
-  color: #8789C0 !important;
-}
-
-input[type=email]:focus:not([readonly]) + label {
-  color: #8789C0 !important;
 }
 
 .input-field {
@@ -41,11 +32,11 @@ input[type=email]:focus:not([readonly]) + label {
 }
 
 .btn:focus {
-  background: #7B7DAF;
+  background: rgb(161, 161, 180);
 }
 
 .btn:hover {
-  background: #A7A9D1;
+  background: rgb(170, 15, 54);
 }
 
 .toast {

@@ -210,12 +210,12 @@
   // Initialize materialize JS --
   M.AutoInit();
 
-  // 'Submit' button click listenet => post request: 
+  // 'Submit' button click listener => post request: 
   $("#submit").on("click", function(event) {
 
     event.preventDefault();
 
-    // Answers stored in array:
+    // Answers to questions are stored in array:
     var answers = [];
 
     answers.push(parseInt($("input[name='group1']:checked").val()));
@@ -235,6 +235,7 @@
       answers: answers,
     };
 
+    // Initial post request made to the neighborhoods API, where a matching neighborrhood is found:
     $.post("/api/neighborhoods", newFriend, function (data) {
 
         if (data) {
@@ -244,20 +245,23 @@
         else {
             console.log('error');
         }
-    }).then(function(data) {
 
+    }).then(function(data) {
         console.log(data);
 
-        $("#form").fadeOut();
-        $("#results").fadeIn();
-
+        // After a neighborhood has been found, append the matching neighborhood's information to the page:
         $("#neighborhood-name").text(data.name);
         $("#neighborhood-description").text(data.bio);
         $("#neighborhood-quote").text(data.quote);
         $("#neighborhood-image").attr("src", data.image);
 
+        $("#form").fadeOut();
+        $("#results").fadeIn();
+
+        // The matching neighborhood is added as a key-value pair to our 'newFriend' object:
         newFriend.neighborhood = data.name;
 
+        // Finally, that new friend object is pushed to our friendData array on the back-ebd via a second post request:
         $.post("/api/friends", newFriend, function (data) {
 
             if (data) {
