@@ -15,7 +15,7 @@ var neighborhoods = [
     },
     {
         name: "Sunnyside",
-        bio: "And as Astoria manages to fall victim to rent hikes, we present Sunnyside. Bursting with international culture and beauty, including but not limited to Paraguayan, Filipino, and Indian, Sunnyside continues to pull in young professionals (and serious foodies) seeking more of a diverse scene, who want more bang for their buck.",
+        bio: "And as Astoria manages to fall victim to rent hikes, we present Sunnyside. Bursting with international culture and beauty, Sunnyside continues to pull in young professionals (and serious foodies) seeking more of a diverse scene, who want more bang for their buck.",
         quote: "“As someone who loves eating, Sunnywide is perfect because it conveniently has three large supermarkets contained within about seven blocks, and a smorgasbord of ethnic restaurants and more places are moving in all the time.”",
         answers: [3,3,3,3,3],
         image: "https://www.tracysnewyorklife.com/wp-content/uploads/2017/06/DSC07366-800x533.jpg"
