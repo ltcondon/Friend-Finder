@@ -20,20 +20,20 @@
 
 <body>
 
-    <div class="container">
-        <div class="title"> Form using Materialize.css</div>
+    <div class="container" id="form">
+        <div class="title"> Which NYC Neighborhood should I live in?</div>
         <div class="row">
             <form id="register">
             <div class="input-field col s12">
-            <input id="name" type="text">
+            <input id="name" type="text" class="validate">
             <label for="name">Name</label>
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
+            <input id="photo" type="text" class="validate">
+            <label for="photo">Photo</label>
             </div>
         </div>
 
@@ -182,7 +182,7 @@
             <p>
                 <label>
                 <input name="group5" type="radio" value="4" />
-                <span>My camera is my workout</span>
+                <span>Photographer</span>
                 </label>
             </p>
         </div>
@@ -193,53 +193,70 @@
         
     </div>
 
+    <div class ="container" id="results"  style="display: none">
+        <h3>You're best suited for... <strong><span id="neighborhood-name"></span></strong></h4>
+            <br>
+        <img src="#" id="neighborhood-image">
+            <br>
+        <h5><strong>Description: </strong><span id="neighborhood-description"></span></h5>
+        <h5><strong>Quote From a Resident: </strong><span id="neighborhood-quote"></span></h5>
+
+
+    </div>
    
       
   <script type="text/javascript">
   
   // Initialize materialize JS --
-//   M.AutoInit();
+  M.AutoInit();
 
   // 'Submit' button click listenet => post request: 
   $("#submit").on("click", function(event) {
+
     event.preventDefault();
 
+    // Answers stored in array:
     var answers = [];
 
     answers.push(parseInt($("input[name='group1']:checked").val()));
-    answers.push($("input[name='group2']:checked").val());
-    answers.push($("input[name='group3']:checked").val());
-    answers.push($("input[name='group4']:checked").val());
-    answers.push($("input[name='group5']:checked").val());
+    answers.push(parseInt($("input[name='group2']:checked").val()));
+    answers.push(parseInt($("input[name='group3']:checked").val()));
+    answers.push(parseInt($("input[name='group4']:checked").val()));
+    answers.push(parseInt($("input[name='group5']:checked").val()));
+    
 
     console.log(answers);
 
     
+    //'New Friend' object created and assigned key-values from page:
+    var newFriend = {
+      name: $("#name").val().trim(),
+      photo: $("#photo").val().trim(),
+      answers: answers,
+    };
 
-    // var newFriend = {
-    //   name: "Liam",
-    //   photo: "#",
-    // //   answers: [0,0,0,0,0,0,0,0,0,0],
-    // //   answers: [9,9,9,9,9,9,9,9,9,9],
-    //   answers: [5,5,5,0,0,8,0,0,5,5],
-    //   ID: "454t54"
-    // };
+    $.post("/api/friends", newFriend, function (data) {
 
-    
-    
+        if (data) {
+            console.log(data);
+        }
 
-    // $.post("/api/friends", newFriend, function (data) {
+        else {
+            console.log('error');
+        }
+    }).then(function(data) {
 
-    //     if (data) {
-    //         console.log(data);
-    //     }
+        console.log(data);
 
-    //     else {
-    //         console.log('error');
-    //     }
+        $("#form").fadeOut();
+        $("#results").fadeIn();
 
+        $("#neighborhood-name").text(data.name);
+        $("#neighborhood-description").text(data.bio);
+        $("#neighborhood-quote").text(data.quote);
+        $("#neighborhood-image").attr("src", data.image);
 
-    // });
+    })
   })
 
   </script>    

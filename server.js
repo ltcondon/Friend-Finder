@@ -14,7 +14,7 @@ app.listen(PORT, function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 require("./app/routing/htmlRoutes")(app);
 require("./app/routing/apiRoutes")(app);
