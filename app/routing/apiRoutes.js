@@ -13,8 +13,8 @@ module.exports = function(app) {
         function findMatch(person) {
 
             var friendDifference = 0;
-            var totalDifference = 0;
-            var closestMatch = "";
+            var totalDifference = 500;
+            var closestMatch;
 
             for (var i = 0; i < friendData.length; i++) {
                 var friendScores = friendData[i].answers;
@@ -26,9 +26,9 @@ module.exports = function(app) {
                     friendDifference += Math.abs((personScores[j] - friendScores[j]));
                 } 
 
-                if (friendDifference > totalDifference) {
+                if (friendDifference < totalDifference) {
                     totalDifference = friendDifference;
-                    closestMatch = friendData[i].name;
+                    closestMatch = friendData[i];
                 }
                 
                 friendDifference = 0;
@@ -36,12 +36,13 @@ module.exports = function(app) {
             }
             console.log("Total Diff: " + totalDifference
             + "\nFriend Diff: " + friendDifference
-            + "\nClosest Match: " + closestMatch);
+            + "\nClosest Match: " + closestMatch.name);
+
+            return closestMatch;
         }
 
-        findMatch(request.body);
+        response.json(findMatch(request.body));
 
-        response = true;
         console.log("post request made" + response)
     })
 }
