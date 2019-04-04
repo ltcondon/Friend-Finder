@@ -2,6 +2,8 @@
 
 ![opener](app/public/assets/images/home.png)
 
+Live Link: https://limitless-savannah-87795.herokuapp.com/
+
 # Summary
 
 This 'Friend'ly Neighborhood App helps prospective NYC'ers wade through the chaos that is finding a new apartment in the city by suggesting a neighborhood that suits them, based on a handful of questions they provide answers for. 
